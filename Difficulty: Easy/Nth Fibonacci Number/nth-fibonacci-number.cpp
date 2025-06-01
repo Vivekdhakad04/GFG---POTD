@@ -1,22 +1,20 @@
 // User function Template for C++
 class Solution {
   public:
+    int helper(int n, vector<int> &dp){
+        
+        //base case
+        if(n <= 1)
+        return n;
+        
+        if(dp[n] != -1)
+        return dp[n];
+        
+        return dp[n] = helper(n - 1, dp) + helper(n - 2, dp);
+    }
     int nthFibonacci(int n) {
         // code here
-        int prev = 0;
-        int curr = 1;
-        
-        if(n == 0) return prev;
-        
-        if(n == 1) return curr;
-        
-        for(int i = 2; i <= n; i++)
-        {
-            int next = prev + curr;
-            prev = curr;
-            curr = next;
-        }
-    return curr;
-        
+       vector<int> dp(n+1,-1);
+       return helper(n,dp);
     }
 };
