@@ -10,7 +10,7 @@ class Solution {
     int minCost(vector<int>& height) {
         // Code here
         int n = height.size();
-        vector<int> dp(n, -1);
+        vector<int> dp(n+1, -1);
         return helper(height, dp, n-1);
     }
 };
